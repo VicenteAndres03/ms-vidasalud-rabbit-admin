@@ -1,0 +1,16 @@
+server:
+  port: 8084
+
+spring:
+  application:
+    name: ms-vidasalud-rabbit-admin
+  rabbitmq:
+    addresses: ${RABBIT_ADDRESSES:localhost:5672}
+    username: ${RABBIT_USER:guest}
+    password: ${RABBIT_PASS:guest}
+
+app:
+  rabbit:
+    # Exchange al que se mandan los mensajes rechazados de las colas creadas con DLQ
+    exchange-dlx: vidasalud.dlx
+    sufijo-dlq: .dlq
